@@ -3,7 +3,6 @@ public class Agence {
 	private int agenceID;
 	private String ville;
 	private String adresse;
-	// mdr
 	
 	public Agence(String ville, String adresse) {
 		this.ville = ville;
