@@ -36,15 +36,15 @@ public class Facture {
 	public void setEstPaye(boolean estPaye) {
 		this.estPaye = estPaye;
 	}
-	public Facture(double montant, int locationID, int techID, boolean estPaye) {
-		this.montant = montant;
+	public Facture(int locationID, int techID, boolean estPaye) {
+		this.montant = this.CalculMontant();
 		this.locationID = locationID;
 		this.techID = techID;
 		this.estPaye = estPaye;
 	}
-	public Facture(int factID, double montant, int locationID, int techID, boolean estPaye) {
+	public Facture(int factID, int locationID, int techID, boolean estPaye) {
 		this.factID = factID;
-		this.montant = montant;
+		this.montant = this.CalculMontant();
 		this.locationID = locationID;
 		this.techID = techID;
 		this.estPaye = estPaye;
@@ -55,5 +55,26 @@ public class Facture {
 				+ techID + ", estPaye=" + estPaye;
 	}
 	
+	public double CalculMontant() {
+		Location tempLocation = this.getLocation();
+		Assurance tempAssur = getAssurance(tempLocation.getAssurID());
+		Voiture tempVoit = getVoiture(tempLocation.getVoitureID());
+		return (tempAssur.getPrix() + tempVoit.getPrix());
+	}
 	
+	public Location getLocation() {
+		// recherche dans la BDD avec this.locationID
+		Location loca = new Location(0, 1, 2, 3, 4, false);
+		return loca;
+	}
+	public Voiture getVoiture(int voitID) {
+		// recherche dans la BDD
+		Voiture voit=new Voiture(500.0, "Opel", "Corsa", 2010, "citadine","Diesel", "noir", true, 2, 99000, 100.0, 130.0, 900.0, 0 );
+		return voit;
+	}
+	public Assurance getAssurance(int assurID) {
+		// recherche dans la BDD
+		Assurance assur= new Assurance(0, 300.0, "OMNIUM", 1.2);
+		return assur;
+	}
 }

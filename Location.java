@@ -6,6 +6,7 @@ public class Location {
 	private int voitureID;
 	private int accompte;
 	private boolean accomptePaye;
+	// mdr
 	public int getLocationID() {
 		return locationID;
 	}
@@ -62,5 +63,9 @@ public class Location {
 				+ voitureID + ", accompte=" + accompte + ", accomptePaye=" + accomptePaye;
 	}
 	
+	public Location getLocation(int locationID) {
+		// recherche dans la BDD
+		return null;
+	}
 	
 }
