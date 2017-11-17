@@ -1,4 +1,6 @@
 
+package model;
+
 public class Location {
 	private int locationID;
 	private int clientID;
@@ -6,7 +8,7 @@ public class Location {
 	private int voitureID;
 	private int accompte;
 	private boolean accomptePaye;
-	// mdr
+	private long kmInitial;
 	public int getLocationID() {
 		return locationID;
 	}
@@ -62,10 +64,5 @@ public class Location {
 		return "locationID=" + locationID + ", clientID=" + clientID + ", assurID=" + assurID + ", voitureID="
 				+ voitureID + ", accompte=" + accompte + ", accomptePaye=" + accomptePaye;
 	}
-	
-	public Location getLocation(int locationID) {
-		// recherche dans la BDD
-		return null;
-	}
-	
 }
+
